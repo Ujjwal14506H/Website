@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlantAiR - Aeroponic Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50 font-poppins">
+    <!-- Header -->
+    <header class="bg-green-700 text-white sticky top-0 z-50 shadow-lg">
+        <nav class="container mx-auto flex items-center justify-between p-4">
+            <div class="text-3xl font-bold">PlantAiR</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-green-200 transition">Home</a>
+                <a href="#products" class="hover:text-green-200 transition">Products</a>
+                <a href="#about" class="hover:text-green-200 transition">About</a>
+                <a href="#contact" class="hover:text-green-200 transition">Contact</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button id="cart-toggle" class="focus:outline-none relative">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                </button>
+                <button id="menu-toggle" class="md:hidden focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16mkoch -7 6h7" />
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-green-800">
+            <a href="#home" class="block p-4 hover:bg-green-900 transition">Home</a>
+            <a href="#products" class="block p-4 hover:bg-green-900 transition">Products</a>
+            <a href="#about" class="block p-4 hover:bg-green-900 transition">About</a>
+            <a href="#contact" class="block p-4 hover:bg-green-900 transition">Contact</a>
+        </div>
+    </header>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="fixed right-0 top-0 h-full w-80 bg-white bg-opacity-90 backdrop-blur-md shadow-xl transform translate-x-full transition-transform duration-300 z-50">
+        <div class="p-4 flex justify-between items-center border-b">
+            <h2 class="text-xl font-bold">Your Cart</h2>
+            <button id="cart-close" class="focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <div id="cart-items" class="p-4"></div>
+        <div class="p-4 border-t">
+            <p class="font-bold">Total: ₹<span id="cart-total">0</span></p>
+            <button class="mt-4 w-full bg-green-600 text-white py-2 rounded animate-pulse-hover">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-gradient-to-r from-green-400 to-green-600 text-white py-20 animate-fade-in">
+        <div class="container mx-auto text-center px-4">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Grow Smarter with PlantAiR</h1>
+            <p class="text-base sm:text-lg md:text-xl mb-6 max-w-2xl mx-auto">Discover our aeroponic towers and resources for sustainable farming in India.</p>
+            <a href="#products" class="bg-white text-green-600 py-2 px-6 rounded-full hover:bg-green-100 transition animate-pulse-hover">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-16 animate-fade-in">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Our Products</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Product Cards -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card">
+                    <a href="product.html?id=1"><img src="https://th.bing.com/th/id/OIP.W2t45QY8z67gr_VTd2m6ogHaHa?rs=1&pid=ImgDetMain" alt="Aeroponic Tower" class="w-full h-48 object-cover hover:opacity-90 transition"></a>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold">Aeroponic Tower</h3>
+                        <p class="text-gray-600">₹24,999</p>
+                        <button class="add-to-cart mt-4 w-full bg-green-600 text-white py-2 rounded-full hover:bg-green-700 transition" data-id="1" data-name="Aeroponic Tower" data-price="24999">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card">
+                    <a href="product.html?id=2"><img src="https://images-na.ssl-images-amazon.com/images/I/81zxmNowlAL._SL1500_.jpg" alt="Water Pump" class="w-full h-48 object-cover hover:opacity-90 transition"></a>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold">Water Pump</h3>
+                        <p class="text-gray-600">₹4,199</p>
+                        <button class="add-to-cart mt-4 w-full bg-green-600 text-white py-2 rounded-full hover:bg-green-700 transition" data-id="2" data-name="Water Pump" data-price="4199">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card">
+                    <a href="product.html?id=3"><img src="https://www.plantoutlets.com/wp-content/uploads/2023/12/GR39542_1.jpg" alt="Nutrients Pack" class="w-full h-48 object-cover hover:opacity-90 transition"></a>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold">Nutrients Pack</h3>
+                        <p class="text-gray-600">₹2,499</p>
+                        <button class="add-to-cart mt-4 w-full bg-green-600 text-white py-2 rounded-full hover:bg-green-700 transition" data-id="3" data-name="Nutrients Pack" data-price="2499">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card">
+                    <a href="product.html?id=4"><img src="https://th.bing.com/th/id/OIP.SMWTl-fvMgRlZJtMOaV19QAAAA?rs=1&pid=ImgDetMain" alt="LED Grow Light" class="w-full h-48 object-cover hover:opacity-90 transition"></a>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold">LED Grow Light</h3>
+                        <p class="text-gray-600">₹7,499</p>
+                        <button class="add-to-cart mt-4 w-full bg-green-600 text-white py-2 rounded-full hover:bg-green-700 transition" data-id="4" data-name="LED Grow Light" data-price="7499">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden product-card">
+                    <a href="product.html?id=5"><img src="https://akinfotools.com/assets/upload/products/Transparent_Pipe_12mm.png" alt="Water Pipes" class="w-full h-48 object-cover hover:opacity-90 transition"></a>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold">Water Pipes</h3>
+                        <p class="text-gray-600">₹1,699</p>
+                        <button class="add-to-cart mt-4 w-full bg-green-600 text-white py-2 rounded-full hover:bg-green-700 transition" data-id="5" data-name="Water Pipes" data-price="1699">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-green-50 py-16 animate-fade-in">
+        <div class="container mx-auto text-center px-4">
+            <h2 class="text-3xl font-bold mb-8">About PlantAiR</h2>
+            <p class="text-base sm:text-lg max-w-2xl mx-auto">PlantAiR is dedicated to revolutionizing farming in India with sustainable aeroponic solutions. Our towers and resources empower you to grow fresh, healthy plants with minimal resources.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 animate-fade-in">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Get in Touch</h2>
+            <div class="max-w-md mx-auto">
+                <div class="space-y-4">
+                    <input type="text" placeholder="Name" class="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-green-600">
+                    <input type="email" placeholder="Email" class="w-full p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-green-600">
+                    <textarea placeholder="Message" class="w-full p-3 border rounded-lg h-32 focus:outline-none focus:ring-2 focus:ring-green-600"></textarea>
+                    <button class="w-full bg-green-600 text-white py justa3 rounded-full hover:bg-green-700 transition animate-pulse-hover">Send Message</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-green-700 text-white py-8">
+        <div class="container mx-auto text-center px-4">
+            <div class="mb-4">
+                <h3 class="text-xl font-bold">PlantAiR</h3>
+                <p>Sustainable Aeroponic Solutions</p>
+            </div>
+            <div class="flex justify-center space-x-4 mb-4">
+                <a href="#" class="hover:text-green-200 transition">Facebook</a>
+                <a href="#" class="hover:text-green-200 transition">Twitter</a>
+                <a href="#" class="hover:text-green-200 transition">Instagram</a>
+            </div>
+            <p>© 2025 PlantAiR. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
