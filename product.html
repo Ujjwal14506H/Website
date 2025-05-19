@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlantAiR - Product Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-50 font-poppins">
+    <!-- Header -->
+    <header class="bg-green-700 text-white sticky top-0 z-50 shadow-lg">
+        <nav class="container mx-auto flex items-center justify-between p-4">
+            <div class="text-3xl font-bold">PlantAiR</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html#home" class="hover:text-green-200 transition">Home</a>
+                <a href="index.html#products" class="hover:text-green-200 transition">Products</a>
+                <a href="index.html#about" class="hover:text-green-200 transition">About</a>
+                <a href="index.html#contact" class="hover:text-green-200 transition">Contact</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button id="cart-toggle" class="focus:outline-none relative">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                </button>
+                <button id="menu-toggle" class="md:hidden focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-green-800">
+            <a href="index.html#home" class="block p-4 hover:bg-green-900 transition">Home</a>
+            <a href="index.html#products" class="block p-4 hover:bg-green-900 transition">Products</a>
+            <a href="index.html#about" class="block p-4 hover:bg-green-900 transition">About</a>
+            <a href="index.html#contact" class="block p-4 hover:bg-green-900 transition">Contact</a>
+        </div>
+    </header>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar" class="fixed right-0 top-0 h-full w-80 bg-white bg-opacity-90 backdrop-blur-md shadow-xl transform translate-x-full transition-transform duration-300 z-50">
+        <div class="p-4 flex justify-between items-center border-b">
+            <h2 class="text-xl font-bold">Your Cart</h2>
+            <button id="cart-close" class="focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <div id="cart-items" class="p-4"></div>
+        <div class="p-4 border-t">
+            <p class="font-bold">Total: ₹<span id="cart-total">0</span></p>
+            <button class="mt-4 w-full bg-green-600 text-white py-2 rounded animate-pulse-hover">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Product Detail Section -->
+    <section class="py-16 bg-gradient-to-b from-gray-50 to-green-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-8 product-detail-container animate-slide-in">
+                <img id="product-image" src="" alt="Product" class="w-full lg:w-1/2 max-w-md rounded-xl shadow-lg product-detail-image">
+                <div class="w-full lg:w-1/2">
+                    <h1 id="product-name" class="text-3xl font-bold mb-4"></h1>
+                    <p id="product-description" class="text-gray-600 mb-6"></p>
+                    <p id="product-price" class="text-2xl font-semibold text-green-600 mb-4"></p>
+                    <p id="product-stock" class="text-sm font-medium mb-4"></p>
+                    <div class="quantity-selector mb-6">
+                        <button id="decrement">-</button>
+                        <input id="quantity" type="text" value="1" readonly>
+                        <button id="increment">+</button>
+                    </div>
+                    <button id="add-to-cart" class="w-full bg-green-600 text-white py-3 rounded-full hover:bg-green-700 transition animate-pulse-hover" data-id="" data-name="" data-price="">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-green-700 text-white py-8">
+        <div class="container mx-auto text-center px-4">
+            <div class="mb-4">
+                <h3 class="text-xl font-bold">PlantAiR</h3>
+                <p>Sustainable Aeroponic Solutions</p>
+            </div>
+            <div class="flex justify-center space-x-4 mb-4">
+                <a href="#" class="hover:text-green-200 transition">Facebook</a>
+                <a href="#" class="hover:text-green-200 transition">Twitter</a>
+                <a href="#" class="hover:text-green-200 transition">Instagram</a>
+            </div>
+            <p>© 2025 PlantAiR. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Product page logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+            const product = products.find(p => p.id === productId);
+            
+            if (product) {
+                document.getElementById('product-image').src = product.image;
+                document.getElementById('product-image').alt = product.name;
+                document.getElementById('product-name').textContent = product.name;
+                document.getElementById('product-description').textContent = product.description;
+                document.getElementById('product-price').textContent = `₹${product.price.toLocaleString('en-IN')}`;
+                document.getElementById('product-stock').textContent = product.inStock ? 'In Stock' : 'Out of Stock';
+                document.getElementById('product-stock').className = product.inStock ? 'text-sm font-medium text-green-600' : 'text-sm font-medium text-red-600';
+                
+                const addToCartBtn = document.getElementById('add-to-cart');
+                addToCartBtn.dataset.id = product.id;
+                addToCartBtn.dataset.name = product.name;
+                addToCartBtn.dataset.price = product.price;
+                addToCartBtn.disabled = !product.inStock;
+                if (!product.inStock) {
+                    addToCartBtn.classList.add('bg-gray-400', 'cursor-not-allowed');
+                    addToCartBtn.classList.remove('bg-green-600', 'hover:bg-green-700');
+                }
+                
+                let quantity = 1;
+                const quantityInput = document.getElementById('quantity');
+                const incrementBtn = document.getElementById('increment');
+                const decrementBtn = document.getElementById('decrement');
+                
+                incrementBtn.addEventListener('click', () => {
+                    quantity++;
+                    quantityInput.value = quantity;
+                    addToCartBtn.dataset.quantity = quantity;
+                });
+                
+                decrementBtn.addEventListener('click', () => {
+                    if (quantity > 1) {
+                        quantity--;
+                        quantityInput.value = quantity;
+                        addToCartBtn.dataset.quantity = quantity;
+                    }
+                });
+            } else {
+                document.querySelector('.product-detail-container').innerHTML = '<p class="text-xl text-center">Product not found.</p>';
+            }
+        });
+    </script>
+</body>
+</html>
